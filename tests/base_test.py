@@ -20,7 +20,8 @@ class BaseTest(unittest.TestCase):
 
         self.driver = webdriver.Chrome(options=options)
         # self.driver = webdriver.Firefox()
-        self.driver.get("http://www.amazon.com")
+        self.driver.get("https://go2.drkumo.com/")
+        self.driver.implicitly_wait(10)
 
     def tearDown(self):
         self.driver.close()

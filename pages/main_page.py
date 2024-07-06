@@ -14,17 +14,25 @@ class MainPage(BasePage):
         super().__init__(driver)  # Python3 version
 
     def check_page_loaded(self):
-        return True if self.find_element(*self.locator.LOGO) else False
+        locator = self.locator.DASHBOARD
+        return True if self.find_element(*locator) else False
 
-    def search_item(self, item):
-        self.find_element(*self.locator.SEARCH).send_keys(item)
-        self.find_element(*self.locator.SEARCH).send_keys(Keys.ENTER)
-        return self.find_element(*self.locator.SEARCH_LIST).text
+    def search_item(self, search_locator, list_locator, item):
+        self.find_element(*search_locator).send_keys(item)
+        self.find_element(*search_locator).send_keys(Keys.ENTER)
+        return self.find_element(*list_locator).text
+    
+    def search_items(self, search_locator, list_locator, item):
+        self.find_element(*search_locator).send_keys(item)
+        self.find_element(*search_locator).send_keys(Keys.ENTER)
+        return self.find_elements(*list_locator)
+    
+    def send_key(self, keys):
+        self.driver.send_keys(keys)
 
-    def click_sign_up_button(self):
-        self.find_element(*self.locator.SIGNUP).click()
-        return SignUpBasePage(self.driver)
+    # def click_sign_up_button(self):
+    #     self.find_element(*self.locator.SIGNUP).click()
+    #     return SignUpBasePage(self.driver)
 
     def click_sign_in_button(self):
-        self.find_element(*self.locator.LOGIN).click()
         return LoginPage(self.driver)
