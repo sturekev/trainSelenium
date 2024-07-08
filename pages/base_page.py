@@ -21,10 +21,13 @@ class BasePage(object):
     def find_elements(self, *locator):
         return self.driver.find_elements(*locator)
 
-    def open(self, url):
-        url = self.base_url + url
-        self.driver.get(url)
-    
+    def open(self, url=None, full_url = None):
+        if full_url!= None:
+            print(full_url)
+            self.driver.get(full_url)
+        elif url!=None:
+            url = self.base_url + url
+            self.driver.get(url)
     def new_driver(self):
         self.driver.execute_script("window.open('');")
         all_windows = self.driver.window_handles

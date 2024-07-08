@@ -20,8 +20,12 @@ class patients_page(object):
     SCHEDULE_ID = (By.ID, 'data-date')
     S_ID = (By.XPATH, "//p[contains(@class,'css-1dzwkkb')]")
     
-    
+    input_locate = (By.XPATH, "//input[contains(@placeholder,'MM/DD/YYYY')]")
+    SEARCH_BTN = (By.XPATH, "//button[normalize-space()='Search']")
     # LIST_LOCATORS = (By.NAME)
+    
+    rows = (By.XPATH, "//tr[contains(@class,'dx-row dx-data-row dx-column-lines')]")
+    
 
 
 class LoginPageLocators(object):    
