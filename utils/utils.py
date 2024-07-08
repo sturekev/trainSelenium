@@ -33,7 +33,7 @@ class basic_analysis ():
     def get_min(self,target_col):
         res = []
         for dt_by_col in self.db: 
-            res.append(dt_by_col[target_col])
+            res.append(int(dt_by_col[target_col]))
         return min(res)
     
     def get_max(self,target_col):
@@ -45,7 +45,7 @@ class basic_analysis ():
     def get_average(self,target_col):
         sum = 0
         for dt_by_col in self.db: 
-            sum += dt_by_col[target_col]
+            sum += int(dt_by_col[target_col])
         
         return sum/len(self.db)
        
