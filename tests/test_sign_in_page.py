@@ -32,8 +32,7 @@ class TestSignInPage(BaseTest):
     def test_general_patient_page(self):
         main_page = MainPage(self.driver)
         login = main_page.click_sign_in_button()
-        login.login_with_valid_user("valid_user")
-        main_page.wait_element(*MainPageLocators.DASHBOARD)
+        login.login_with_valid_user("valid_user",*MainPageLocators.DASHBOARD)
         main_page.open("patients")
         
         main_page.wait_element(*patients_page.GENERAL_BTNs)
@@ -88,13 +87,8 @@ class TestSignInPage(BaseTest):
             for col_idx, col_value in enumerate(cols_vals):
                 data_by_row[col_idx] = col_value.text
             data.append(data_by_row)
-            
-                
+               
         analysis = basic_analysis(data)
         print(analysis.get_analysis_SYS())
         print(analysis.get_analysis_DIA())
         print(analysis.get_analysis_HR())
-        
-           
-            
-        # time.sleep(10)

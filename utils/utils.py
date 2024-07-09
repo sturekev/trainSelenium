@@ -1,3 +1,5 @@
+from pages.main_page import MainPage
+
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -72,3 +74,6 @@ class basic_analysis ():
             "Max": self.get_max(target_col),
             "Average": self.get_average(target_col)
         }
+    
+# class pre_set_pages (MainPage):
+    

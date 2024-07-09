@@ -1,7 +1,9 @@
 from selenium.webdriver.common.keys import Keys
+
 from pages.base_page import BasePage
 from pages.login_page import LoginPage
 from pages.signup_page import SignUpBasePage
+from pages.sub0_pages import ExtrPages
 from utils.locators import *
 
 
@@ -36,3 +38,6 @@ class MainPage(BasePage):
 
     def click_sign_in_button(self):
         return LoginPage(self.driver)
+
+    def get_patient_1001(self, page):
+        return ExtrPages(self.driver, page=page)
